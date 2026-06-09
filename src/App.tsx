@@ -56,8 +56,8 @@ export default function App() {
   }
 
   if (!employee) {
-    return <Centered message="Your Gmail account is not active in employee access. Please contact Accounts." />;
-  }
+  return <Centered message="LOGIN SUCCESSFUL BUT EMPLOYEE NOT FOUND" />
+}
 
   return <AppShell employee={employee}>{employee.role === "admin" ? <AdminApp /> : <EmployeeApp employee={employee} />}</AppShell>;
 }
