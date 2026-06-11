@@ -86,7 +86,8 @@ export function AdminApp() {
   );
 }
 
-function EmployeeAccess({ employees, onChanged }: { employees: Employee[]; onChanged: () => void }) {
+function EmployeeAccess(
+  { employees, onChanged }: { employees: Employee[]; onChanged: () => void }) {
   const [editing, setEditing] = useState<Employee | null>(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

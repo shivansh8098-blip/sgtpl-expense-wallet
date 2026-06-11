@@ -74,12 +74,12 @@ export async function listExpenses(filter: ExpenseFilter = "all") {
   let query = supabase
     .from("expenses")
     .select("*, employees(name,email)")
-    .order("expense_date", { ascending: false })
+    .order("created_at", { ascending: false })
     .order("created_at", { ascending: false });
 
   const range = rangeFor(filter);
   if (range) {
-    query = query.gte("expense_date", range.from.toISOString().slice(0, 10)).lte("expense_date", range.to.toISOString().slice(0, 10));
+    query = query.gte("created_at", range.from.toISOString().slice(0, 10)).lte("created_at", range.to.toISOString().slice(0, 10));
   }
 
   const { data, error } = await query;
