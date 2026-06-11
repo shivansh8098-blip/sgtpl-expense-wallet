@@ -91,7 +91,6 @@ export async function listAdvances() {
   const { data, error } = await supabase
     .from("advances")
     .select("*, employees(name,email)")
-    .order("payment_date", { ascending: false })
     .order("created_at", { ascending: false });
   if (error) throw error;
   return data as Advance[];
